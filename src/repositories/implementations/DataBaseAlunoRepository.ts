@@ -31,20 +31,20 @@ export class DataBaseAlunoRepository implements IAlunoRepository {
     CURSO: string,
     EMAIL: string,
     ID: string,
-    passwordHash: string
+    SENHA: string
   ): Promise<Aluno[]> {
     await Knex("TABELA_ALUNO")
       .update({
         NOME: NOME,
         CURSO: CURSO,
         EMAIL: EMAIL,
-        SENHA: passwordHash,
+        SENHA: SENHA,
       })
       .where({ ID: ID });
 
       await Knex("TABELA_USER")
       .update({
-        SENHA: passwordHash,
+        SENHA: SENHA
       })
       .where({ ID: ID });
 

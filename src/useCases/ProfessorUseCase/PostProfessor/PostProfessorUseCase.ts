@@ -1,5 +1,6 @@
 import { Professor } from "../../../entities/Professor";
 import { IProfessorRepository } from "../../../repositories/IProfessorRepository";
+import { hash } from "bcryptjs";
 
 interface IUserRequest {
   NOME: string;
@@ -29,13 +30,16 @@ class CreateProfessorUseCase {
       throw new Error("User already exists!");
     }
 
+    const passwordHash = await hash(SENHA.toString(), 8);
+
+
     const professor = new Professor({
       NOME,
       EMAIL,
       SIAEP,
       NUMERO,
       DEPARTAMENTO,
-      SENHA,
+      SENHA: passwordHash,
     });
 
     await this.professorRepository.save(professor);

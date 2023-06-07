@@ -17,6 +17,12 @@ export class DataBaseProfessorRepository implements IProfessorRepository {
 
   async save(professor: Professor): Promise<void> {
     await Knex("TABELA_PROFESSOR").insert(professor);
+    await Knex("TABELA_USER").insert({
+      ID: professor.ID,
+      USUARIO: professor.SIAEP,
+      SENHA: professor.SENHA,
+      TIPO: 2,
+    });
   }
   async updateProfessor(
     ID: string,
@@ -34,6 +40,12 @@ export class DataBaseProfessorRepository implements IProfessorRepository {
         SIAEP: SIAEP,
         NUMERO: NUMERO,
         DEPARTAMENTO: DEPARTAMENTO,
+        SENHA: SENHA,
+      })
+      .where({ ID: ID });
+
+      await Knex("TABELA_USER")
+      .update({
         SENHA: SENHA,
       })
       .where({ ID: ID });

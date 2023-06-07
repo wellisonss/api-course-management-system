@@ -7,6 +7,9 @@ export class AuthenticateUserController {
   async handle(request: Request, response: Response) {
     const { USUARIO, SENHA } = request.body;
 
+    console.log("USUARIO", USUARIO);
+    console.log("SENHA", SENHA);
+
     try {
       const token = await this.authenticateUserUseCase.execute({
         USUARIO,
