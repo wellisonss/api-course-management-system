@@ -12,7 +12,8 @@ import { getProfessorController } from "./useCases/ProfessorUseCase/GetProfessor
 import { createProfessorController } from "./useCases/ProfessorUseCase/PostProfessor";
 import { updateProfessorController } from "./useCases/ProfessorUseCase/UpdateProfessor";
 import { deleteProfessorController } from "./useCases/ProfessorUseCase/DeleteProfessor";
-import { authenticateUserController } from "./useCases/UserUseCase/AuthenticateUser"
+import { authenticateUserController } from "./useCases/UserUseCase/AuthenticateUser";
+import { ensureAuthenticated } from "./middlewares/ensureAuthenticated"
 
 const router = express.Router();
 
@@ -67,6 +68,11 @@ router.delete("/disciplina/:ID", (request, response) => {
 
 router.post("/login", (request, response) => {
   return authenticateUserController.handle(request, response);
+});
+
+// rota utilizada somenta para verificar se o token é válido
+router.get("/verify", ensureAuthenticated, (request, response) => {
+  return response.json( { authenticated: true });
 });
 
 module.exports = { router };
