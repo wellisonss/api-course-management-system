@@ -3,10 +3,11 @@ import { Knex } from "knex";
 export async function up(knex: Knex): Promise<void> {
   return knex.schema
     .createTable("TABELA_DISCIPLINA", (table) => {
+      table.string("ID").primary().index();
       table.string("NOME").notNullable();
       table.string("CURSO").notNullable();
       table.string("DESCRICAO").notNullable();
-      table.integer("COD_DISCIPLINA").notNullable().index();
+      table.integer("COD_DISCIPLINA").notNullable();
     })
     .then(() => {
       console.log("# Create table TABELA_DISCIPLINA");

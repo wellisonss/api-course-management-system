@@ -5,11 +5,12 @@ export class UpdateDisciplinaController {
   constructor(private updateDisciplinaUseCase: UpdateDisciplinaUseCase) {}
 
   async handle(request: Request, response: Response): Promise<Response> {
-    const { COD_DISCIPLINA } = request.params;
-    const { NOME, DESCRICAO, CURSO } = request.body;
+    const { ID } = request.params;
+    const { NOME, DESCRICAO, CURSO, COD_DISCIPLINA } = request.body;
 
     try {
       const disciplina = await this.updateDisciplinaUseCase.execute({
+        ID,
         NOME,
         CURSO,
         DESCRICAO,

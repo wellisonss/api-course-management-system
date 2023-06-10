@@ -1,15 +1,15 @@
 import { IDisciplinaRepository } from "../../../repositories/IDisciplinaRepository";
 
 interface IDisciplinaRequest {
-  COD_DISCIPLINA: string;
+  ID: string;
 }
 
 export class DeleteDisciplinaUseCase {
   constructor(private disciplinaRepository: IDisciplinaRepository) {}
 
-  async execute({ COD_DISCIPLINA }: IDisciplinaRequest) {
+  async execute({ ID }: IDisciplinaRequest) {
     const deleteDisciplina = await this.disciplinaRepository.deleteDisciplina(
-      COD_DISCIPLINA
+      ID
     );
 
     return deleteDisciplina;

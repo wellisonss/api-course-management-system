@@ -7,12 +7,14 @@ export async function seed(knex: Knex): Promise<void> {
   // Inserts seed entries
   await knex("TABELA_DISCIPLINA").insert([
     {
+      ID: "1",
       NOME: "calculo",
       CURSO: "eng.",
       DESCRICAO: "kenio",
       COD_DISCIPLINA: 123,
     },
     {
+      ID: "2",
       NOME: "calculo2",
       CURSO: "eng.",
       DESCRICAO: "boa",

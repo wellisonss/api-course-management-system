@@ -9,10 +9,10 @@ export class DataBaseDisciplinaRepository implements IDisciplinaRepository {
     this.disciplinas = await Knex("TABELA_DISCIPLINA");
     return this.disciplinas;
   }
-  async findByCod(COD_DISCIPLINA: string): Promise<Disciplina> {
+  async findByCod(cod_disciplina: string): Promise<Disciplina> {
     const disciplinas = await Knex("TABELA_DISCIPLINA");
     const disciplina = disciplinas.find(
-      (e) => e.COD_DISCIPLINA === COD_DISCIPLINA
+      (e) => e.COD_DISCIPLINA === cod_disciplina
     );
     return disciplina;
   }
@@ -21,10 +21,8 @@ export class DataBaseDisciplinaRepository implements IDisciplinaRepository {
     await Knex("TABELA_DISCIPLINA").insert(disciplina);
   }
 
-  async deleteDisciplina(COD_DISCIPLINA: string): Promise<Disciplina[]> {
-    await Knex("TABELA_DISCIPLINA")
-      .where({ COD_DISCIPLINA: COD_DISCIPLINA })
-      .del();
+  async deleteDisciplina(ID: string): Promise<Disciplina[]> {
+    await Knex("TABELA_DISCIPLINA").where({ ID: ID }).del();
 
     this.disciplinas = await Knex("TABELA_DISCIPLINA");
 
@@ -32,6 +30,7 @@ export class DataBaseDisciplinaRepository implements IDisciplinaRepository {
   }
 
   async updateDisciplina(
+    ID: string,
     NOME: string,
     CURSO: string,
     DESCRICAO: string,
@@ -44,7 +43,7 @@ export class DataBaseDisciplinaRepository implements IDisciplinaRepository {
         DESCRICAO: DESCRICAO,
         COD_DISCIPLINA: COD_DISCIPLINA,
       })
-      .where({ COD_DISCIPLINA: COD_DISCIPLINA });
+      .where({ ID: ID });
 
     this.disciplinas = await Knex("TABELA_DISCIPLINAS");
     return this.disciplinas;
