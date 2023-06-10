@@ -14,8 +14,18 @@ import { updateProfessorController } from "./useCases/ProfessorUseCase/UpdatePro
 import { deleteProfessorController } from "./useCases/ProfessorUseCase/DeleteProfessor";
 import { authenticateUserController } from "./useCases/UserUseCase/AuthenticateUser";
 import { ensureAuthenticated } from "./middlewares/ensureAuthenticated";
+import { createTurmaController } from "./useCases/TurmaUseCase/PostTurma";
+import { getTurmaController } from "./useCases/TurmaUseCase/GetTurma";
 
 export const router = express.Router();
+
+router.get("/turma", (request, response) => {
+  return getTurmaController.handle(request, response);
+});
+
+router.post("/turma", (request, response) => {
+  return createTurmaController.handle(request, response);
+});
 
 router.get("/aluno", (request, response) => {
   return getAlunoController.handle(request, response);
