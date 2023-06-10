@@ -8,20 +8,14 @@ export async function seed(knex: Knex): Promise<void> {
   await knex("TABELA_DISCIPLINA").insert([
     {
       NOME: "calculo",
-      TURNO: "matutino",
-      HORARIO: "23M12",
-      VAGAS: 40,
       CURSO: "eng.",
-      PROFESSOR: "kenio",
+      DESCRICAO: "kenio",
       COD_DISCIPLINA: 123,
     },
     {
       NOME: "calculo2",
-      TURNO: "matutino",
-      HORARIO: "23M34",
-      VAGAS: 40,
       CURSO: "eng.",
-      PROFESSOR: "ceron",
+      DESCRICAO: "boa",
       COD_DISCIPLINA: 1234,
     },
 

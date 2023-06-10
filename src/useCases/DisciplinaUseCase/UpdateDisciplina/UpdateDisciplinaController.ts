@@ -6,15 +6,13 @@ export class UpdateDisciplinaController {
 
   async handle(request: Request, response: Response): Promise<Response> {
     const { COD_DISCIPLINA } = request.params;
-    const { NOME, TURNO, HORARIO, VAGAS, CURSO } = request.body;
+    const { NOME, DESCRICAO, CURSO } = request.body;
 
     try {
       const disciplina = await this.updateDisciplinaUseCase.execute({
         NOME,
-        TURNO,
-        HORARIO,
-        VAGAS,
         CURSO,
+        DESCRICAO,
         COD_DISCIPLINA,
       });
 

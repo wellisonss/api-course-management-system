@@ -6,10 +6,8 @@ export interface IDisciplinaRepository {
   save(disciplina: Disciplina): Promise<void>;
   updateDisciplina(
     NOME: string,
-    TURNO: string,
-    HORARIO: string,
-    VAGAS: number,
     CURSO: string,
+    DESCRICAO: string,
     COD_DISCIPLINA: string
   ): Promise<Disciplina[]>;
   deleteDisciplina(COD_DISCIPLINA: string): Promise<Disciplina[]>;

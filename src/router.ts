@@ -3,7 +3,7 @@ import express from "express";
 import { deleteDisciplinaController } from "./useCases/DisciplinaUseCase/DeleteDisciplina";
 import { createDisciplinaController } from "./useCases/DisciplinaUseCase/PostDisciplina";
 import { updateDisciplinaController } from "./useCases/DisciplinaUseCase/UpdateDisciplina";
-import { getDisciplinaController } from "./useCases/DisciplinaUseCase/GetDisciplina"
+import { getDisciplinaController } from "./useCases/DisciplinaUseCase/GetDisciplina";
 import { getAlunoController } from "./useCases/AlunoUseCase/GetAluno";
 import { createAlunoController } from "./useCases/AlunoUseCase/PostAluno";
 import { updateAlunoController } from "./useCases/AlunoUseCase/UpdateAluno";
@@ -13,10 +13,9 @@ import { createProfessorController } from "./useCases/ProfessorUseCase/PostProfe
 import { updateProfessorController } from "./useCases/ProfessorUseCase/UpdateProfessor";
 import { deleteProfessorController } from "./useCases/ProfessorUseCase/DeleteProfessor";
 import { authenticateUserController } from "./useCases/UserUseCase/AuthenticateUser";
-import { ensureAuthenticated } from "./middlewares/ensureAuthenticated"
+import { ensureAuthenticated } from "./middlewares/ensureAuthenticated";
 
-const router = express.Router();
-
+export const router = express.Router();
 
 router.get("/aluno", (request, response) => {
   return getAlunoController.handle(request, response);
@@ -72,7 +71,7 @@ router.post("/login", (request, response) => {
 
 // rota utilizada somenta para verificar se o token é válido
 router.get("/verify", ensureAuthenticated, (request, response) => {
-  return response.json( { authenticated: true });
+  return response.json({ authenticated: true });
 });
 
 module.exports = { router };

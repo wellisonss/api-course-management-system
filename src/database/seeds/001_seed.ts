@@ -7,14 +7,14 @@ export async function seed(knex: Knex): Promise<void> {
   // Inserts seed entries
   await knex("TABELA_PROFESSOR").insert([
     {
-      ID: "e0ed9e38-6bdf-4cdf-b29c-f9d0ba398506",
+      ID: "0813ec50-3a61-4f03-8ede-c40f6dd0f77b",
       NOME: "CaioR",
       EMAIL: "exemplo@gmail.com",
-      SIAEP: 201619257,
+      SIAEP: 201619251,
       NUMERO: 333333,
       DEPARTAMENTO: "exatas",
       // senha 12345678
-      SENHA: "$2a$08$Se4.JidJ7AHf5gFEWy0FF.y00ASSkBX6hBYbPzX7YFJAkhcbnxEyG",
+      SENHA: "$2a$08$rtG/kfiTqR0KU8TQI5B/wuBN4CrVst41rI9lYAA5FLczD0QmkrPDe",
     }
     // Adicione outros registros conforme necessário
   ]);

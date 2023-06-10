@@ -3,10 +3,8 @@ import { IDisciplinaRepository } from "../../../repositories/IDisciplinaReposito
 
 interface IDisciplinaRequest {
   NOME: string;
-  TURNO: string;
-  HORARIO: string;
-  VAGAS: number;
   CURSO: string;
+  DESCRICAO: string;
   COD_DISCIPLINA: string;
 }
 
@@ -15,10 +13,8 @@ class CreateDisciplinaUseCase {
 
   async execute({
     NOME,
-    TURNO,
-    HORARIO,
-    VAGAS,
     CURSO,
+    DESCRICAO,
     COD_DISCIPLINA,
   }: IDisciplinaRequest) {
     const disciplinaAlreadyExists = await this.disciplinaRepository.findByCod(
@@ -31,10 +27,8 @@ class CreateDisciplinaUseCase {
 
     const disciplina = new Disciplina({
       NOME,
-      TURNO,
-      HORARIO,
-      VAGAS,
       CURSO,
+      DESCRICAO,
       COD_DISCIPLINA,
     });
 
