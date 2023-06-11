@@ -45,7 +45,7 @@ export class DataBaseDisciplinaRepository implements IDisciplinaRepository {
       })
       .where({ ID: ID });
 
-    this.disciplinas = await Knex("TABELA_DISCIPLINAS");
+    this.disciplinas = await Knex("TABELA_DISCIPLINA");
     return this.disciplinas;
   }
 }

@@ -1,3 +1,4 @@
+import knex from "knex";
 import { Knex } from "../../database/knex";
 import { Professor } from "../../entities/Professor";
 import { IProfessorRepository } from "../IProfessorRepository";
@@ -24,6 +25,7 @@ export class DataBaseProfessorRepository implements IProfessorRepository {
       TIPO: 2,
     });
   }
+
   async updateProfessor(
     ID: string,
     NOME: string,
@@ -44,7 +46,7 @@ export class DataBaseProfessorRepository implements IProfessorRepository {
       })
       .where({ ID: ID });
 
-      await Knex("TABELA_USER")
+    await Knex("TABELA_USER")
       .update({
         SENHA: SENHA,
       })
