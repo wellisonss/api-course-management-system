@@ -6,8 +6,10 @@ export async function up(knex: Knex): Promise<void> {
       table.string("ID").primary().index();
       table.string("NOME").notNullable();
       table.string("CURSO").notNullable();
-      table.string("DESCRICAO").notNullable();
+      table.string("HORARIO").notNullable();
       table.integer("COD_DISCIPLINA").notNullable();
+      table.string("ID_PROFESSOR").nullable();
+      table.integer("VAGAS").notNullable();
     })
     .then(() => {
       console.log("# Create table TABELA_DISCIPLINA");
