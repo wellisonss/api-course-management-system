@@ -4,8 +4,10 @@ export class Disciplina {
 
   public NOME: string;
   public CURSO: string;
-  public DESCRICAO: string;
+  public HORARIO: string;
   public COD_DISCIPLINA: string;
+  public readonly ID_PROFESSOR?: string;
+  public VAGAS: number;
 
   constructor(props: Omit<Disciplina, "ID">, ID?: string) {
     Object.assign(this, props); //construtor.
