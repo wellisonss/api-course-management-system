@@ -10,15 +10,19 @@ export async function seed(knex: Knex): Promise<void> {
       ID: "1",
       NOME: "calculo",
       CURSO: "eng.",
-      DESCRICAO: "kenio",
+      HORARIO: "kenio",
       COD_DISCIPLINA: 123,
+      ID_PROFESSOR: "WWW@@WWW",
+      VAGAS: 40,
     },
     {
       ID: "2",
       NOME: "calculo2",
       CURSO: "eng.",
-      DESCRICAO: "boa",
+      HORARIO: "boa",
       COD_DISCIPLINA: 1234,
+      ID_PROFESSOR: "QQQ11QQ",
+      VAGAS: 40,
     },
 
     // Adicione outros registros conforme necessário
