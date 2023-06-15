@@ -5,14 +5,15 @@ export class CreateDisciplinaController {
   constructor(private createDisciplinaUseCase: CreateDisciplinaUseCase) {}
 
   async handle(request: Request, response: Response) {
-    const { NOME, CURSO, DESCRICAO, COD_DISCIPLINA } = request.body;
+    const { NOME, CURSO, HORARIO, COD_DISCIPLINA, VAGAS } = request.body;
 
     try {
       const registeredDisciplina = await this.createDisciplinaUseCase.execute({
         NOME,
         CURSO,
-        DESCRICAO,
+        HORARIO,
         COD_DISCIPLINA,
+        VAGAS,
       });
 
       return response.status(201).json(registeredDisciplina);
