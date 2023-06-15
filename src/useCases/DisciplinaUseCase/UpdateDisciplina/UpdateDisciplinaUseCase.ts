@@ -4,8 +4,9 @@ interface IDisciplinaRequest {
   ID: string;
   NOME: string;
   CURSO: string;
-  DESCRICAO: string;
+  HORARIO: string;
   COD_DISCIPLINA: string;
+  VAGAS: number;
 }
 
 export class UpdateDisciplinaUseCase {
@@ -15,15 +16,17 @@ export class UpdateDisciplinaUseCase {
     ID,
     NOME,
     CURSO,
-    DESCRICAO,
+    HORARIO,
     COD_DISCIPLINA,
+    VAGAS,
   }: IDisciplinaRequest) {
     const updatedDisciplina = await this.disciplinaRepository.updateDisciplina(
       ID,
       NOME,
       CURSO,
-      DESCRICAO,
-      COD_DISCIPLINA
+      HORARIO,
+      COD_DISCIPLINA,
+      VAGAS
     );
 
     return updatedDisciplina;
