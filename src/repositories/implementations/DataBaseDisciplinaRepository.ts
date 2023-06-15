@@ -33,15 +33,17 @@ export class DataBaseDisciplinaRepository implements IDisciplinaRepository {
     ID: string,
     NOME: string,
     CURSO: string,
-    DESCRICAO: string,
-    COD_DISCIPLINA: string
+    HORARIO: string,
+    COD_DISCIPLINA: string,
+    VAGAS: number
   ): Promise<Disciplina[]> {
     await Knex("TABELA_DISCIPLINA")
       .update({
         NOME: NOME,
         CURSO: CURSO,
-        DESCRICAO: DESCRICAO,
+        HORARIO: HORARIO,
         COD_DISCIPLINA: COD_DISCIPLINA,
+        VAGAS: VAGAS,
       })
       .where({ ID: ID });
 
