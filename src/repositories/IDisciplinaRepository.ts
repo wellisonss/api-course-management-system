@@ -8,8 +8,9 @@ export interface IDisciplinaRepository {
     ID: string,
     NOME: string,
     CURSO: string,
-    DESCRICAO: string,
-    COD_DISCIPLINA: string
+    HORARIO: string,
+    COD_DISCIPLINA: string,
+    VAGAS: number
   ): Promise<Disciplina[]>;
   deleteDisciplina(ID: string): Promise<Disciplina[]>;
 }
