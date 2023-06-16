@@ -6,7 +6,7 @@ export class Disciplina {
   public CURSO: string;
   public HORARIO: string;
   public COD_DISCIPLINA: string;
-  public readonly ID_PROFESSOR?: string;
+  public ID_PROFESSOR?: string;
   public VAGAS: number;
 
   constructor(props: Omit<Disciplina, "ID">, ID?: string) {
