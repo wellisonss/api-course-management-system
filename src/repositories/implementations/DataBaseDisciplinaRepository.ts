@@ -35,7 +35,8 @@ export class DataBaseDisciplinaRepository implements IDisciplinaRepository {
     CURSO: string,
     HORARIO: string,
     COD_DISCIPLINA: string,
-    VAGAS: number
+    VAGAS: number,
+    ID_PROFESSOR: string
   ): Promise<Disciplina[]> {
     await Knex("TABELA_DISCIPLINA")
       .update({
@@ -44,6 +45,7 @@ export class DataBaseDisciplinaRepository implements IDisciplinaRepository {
         HORARIO: HORARIO,
         COD_DISCIPLINA: COD_DISCIPLINA,
         VAGAS: VAGAS,
+        ID_PROFESSOR: ID_PROFESSOR
       })
       .where({ ID: ID });
 
