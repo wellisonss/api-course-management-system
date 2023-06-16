@@ -10,7 +10,7 @@ class CreateTurmaUseCase {
   constructor(private turmaRepository: ITurmaRepository) {}
 
   async execute({ ID_USUARIO, ID_DISCIPLINA }: ITurmaRequest) {
-    const turmaAlreadyExists = await this.turmaRepository.findById(ID_USUARIO);
+    
     const turma = new Turma({
       ID_USUARIO,
       ID_DISCIPLINA,
